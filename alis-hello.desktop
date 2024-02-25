@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=Alis Hello
+GenericName=System Setting Tool
+GenericName[ja]=システム設定ツール
+Comment=System setting tool written in bash.
+Comment[ja]=Bashで記述されたシステム設定ツール
+Exec=alis-hello
+StartupNotify=true
+Terminal=false
+Icon=alis
+Type=Application
+Categories=System;Utility;

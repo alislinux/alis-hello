@@ -1,0 +1,87 @@
+#!/usr/bin/bash
+
+# Alis Hello
+# Copyright (c) 2023-2024, Naka-mura Jukebox.
+#
+# Redistribution and use in source and binary forms, with or 
+# without modification, are permitted provided that the following 
+# conditions are met:
+#
+# 1. Redistributions of source code must retain the above 
+#    copyright notice, this list of conditions and the following 
+#    disclaimer.
+# 2. Redistributions in binary form must reproduce the above 
+#    copyright notice, this list of conditions and the following 
+#    disclaimer in the documentation and/or other materials 
+#    provided with the distribution.
+# 3. Neither the name of the copyright holder nor the names of 
+#    its contributors may be used to endorse or promote products 
+#    derived from this software without specific prior written 
+#    permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+# CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+# INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+# MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+# DISCLAIMED.
+# IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE 
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, 
+# PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, 
+# OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY 
+# THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR 
+# TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT 
+# OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
+# OF SUCH DAMAGE.
+
+
+set -u
+version="3.2"
+
+about_this_software(){
+	zenity --info --title="About Alis Hello" \
+	       --icon-name=Alis \
+	       --text="<b>Alis Hello ${version}</b>\n\nCopyright (C) 2022-2023 Radio New Japan.\nLicense: 3-clause BSD License"
+}
+
+
+main(){
+	while true; do
+		operation=$(zenity --list --title="Alis Hello" --hide-header \
+				   --text="<b>Welcome to Alis LGX!</b>" \
+				   --column="number" --column="operation" \
+				   --hide-column 1 \
+				   "1" "Package Management" \
+				   "2" "Display" \
+				   "3" "Network" \
+				   "4" "Sound" \
+				   "5" "About This Software" 2>/dev/null)
+		case ${operation} in
+			1)
+				tkpacman
+				;;
+			2)
+				arandr
+				;;
+			3)
+				nm-connection-editor
+				;;
+			4)
+				if command -v pavucontrol; then
+					pavucontrol
+				elif command -v pavucontrol-qt; then
+					pavucontrol-qt
+				fi
+				;;
+			5)
+				about_this_software
+				;;
+			*)
+				break
+				;;
+		esac
+	done
+}
+
+main
+

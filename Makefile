@@ -9,8 +9,8 @@ install:
 	@mkdir -p $(DESTDIR)$(PREFIX)/share
 	@mkdir -p $(DESTDIR)$(PREFIX)/share/applications
 	@mkdir -p $(DESTDIR)$(PREFIX)/share/licenses/alis-hello
-	@cp -p univalent-hello $(DESTDIR)$(PREFIX)/bin/alis-hello
-	@cp -p univalent-hello.desktop $(DESTDIR)$(PREFIX)/share/applications/alis-hello.desktop
+	@cp -p alis-hello $(DESTDIR)$(PREFIX)/bin/alis-hello
+	@cp -p alis-hello.desktop $(DESTDIR)$(PREFIX)/share/applications/alis-hello.desktop
 	@cp -p LICENSE $(DESTDIR)$(PREFIX)/share/licenses/alis-hello/LICENSE
 	@chmod 755 $(DESTDIR)$(PREFIX)/bin/alis-hello
 

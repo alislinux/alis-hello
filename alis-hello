@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 # Alis Hello
-# Copyright (c) 2023-2024, Naka-mura Jukebox.
+# Copyright (c) 2023-2024, Nakamura Musical Industries.
 #
 # Redistribution and use in source and binary forms, with or 
 # without modification, are permitted provided that the following 
@@ -41,7 +41,7 @@ version="3.2"
 about_this_software(){
 	zenity --info --title="About Alis Hello" \
 	       --icon-name=Alis \
-	       --text="<b>Alis Hello ${version}</b>\n\nCopyright (C) 2022-2023 Radio New Japan.\nLicense: 3-clause BSD License"
+	       --text="<b>Alis Hello ${version}</b>\n\nCopyright (C) 2022-2024 Nakamura Musical Industries.\nLicense: 3-clause BSD License"
 }
 
 
